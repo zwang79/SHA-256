@@ -1,0 +1,90 @@
+# //  ModelSim SE-64 10.6c Jul 25 2017Linux 3.10.0-957.el7.x86_64
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -novopt tb_top 
+# Start time: 17:09:37 on Nov 24,2018
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading work.tb_top
+# Loading work.sram
+# Loading work.MyDesign
+# Loading work.M
+# Loading work.W
+# Loading work.H
+# Loading work.Control
+add wave -position insertpoint  \
+sim:/tb_top/dut/dut__xxx__finish \
+sim:/tb_top/dut/xxx__dut__go \
+sim:/tb_top/dut/xxx__dut__msg_length \
+sim:/tb_top/dut/dut__msg__address \
+sim:/tb_top/dut/dut__msg__enable \
+sim:/tb_top/dut/dut__msg__write \
+sim:/tb_top/dut/msg__dut__data \
+sim:/tb_top/dut/dut__kmem__address \
+sim:/tb_top/dut/dut__kmem__enable \
+sim:/tb_top/dut/dut__kmem__write \
+sim:/tb_top/dut/kmem__dut__data \
+sim:/tb_top/dut/dut__hmem__address \
+sim:/tb_top/dut/dut__hmem__enable \
+sim:/tb_top/dut/dut__hmem__write \
+sim:/tb_top/dut/hmem__dut__data \
+sim:/tb_top/dut/dut__dom__address \
+sim:/tb_top/dut/dut__dom__data \
+sim:/tb_top/dut/dut__dom__enable \
+sim:/tb_top/dut/dut__dom__write \
+sim:/tb_top/dut/clk \
+sim:/tb_top/dut/reset
+run -all
+# INFO::readmem : message1.dat 
+# INFO::readmem : K.dat 
+# INFO::readmem : H.dat 
+# INFO::readmem : message1.dat 
+# @315, go asserted
+# Hash[0] = 043a7187
+# Hash[1] = 74c572bd
+# Hash[2] = 8a25adbe
+# Hash[3] = b1bfcd5c
+# Hash[4] = 0256ae11
+# Hash[5] = cecf9f9c
+# Hash[6] = 3f925d0e
+# Hash[7] = 52beaf89
+# @1195, dut finished, # of clocks = 87
+# Store result to result_0.txt
+# INFO::readmem : message27.dat 
+# @2335, go asserted
+# Hash[0] = bd671f60
+# Hash[1] = 435a3b99
+# Hash[2] = d45bbb90
+# Hash[3] = abcbe4aa
+# Hash[4] = 5336500b
+# Hash[5] = d060c986
+# Hash[6] = cce4229f
+# Hash[7] = 7d46ff3a
+# @3475, dut finished, # of clocks = 113
+# Store result to result_1.txt
+# INFO::readmem : message55.dat 
+# @4355, go asserted
+# Hash[0] = 03c3a70e
+# Hash[1] = 99ed5eec
+# Hash[2] = cd80f737
+# Hash[3] = 71fcf1ec
+# Hash[4] = e643d939
+# Hash[5] = d9ecc76f
+# Hash[6] = 25544b02
+# Hash[7] = 33f708e9
+# @5775, dut finished, # of clocks = 141
+# Store result to result_2.txt
+# ** Note: $finish    : tb_top.v(210)
+#    Time: 6355 ns  Iteration: 1  Instance: /tb_top
+# 1
+# Break in Module tb_top at tb_top.v line 210

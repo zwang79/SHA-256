@@ -1,0 +1,887 @@
+The custom string you input is: 123456789012345678901234567
+
+**************Step 1: padding**************
+
+The 27-byte signal '123456789012345678901234567' converted to binary forms is:
+	001100010011001000110011001101000011010100110110001101110011100000111001001100000011000100110010001100110011010000110101001101100011011100111000001110010011000000110001001100100011001100110100001101010011011000110111
+
+First, append a '1' at the end:
+	0011000100110010001100110011010000110101001101100011011100111000001110010011000000110001001100100011001100110100001101010011011000110111001110000011100100110000001100010011001000110011001101000011010100110110001101111
+
+Second, append 231 '0's at the end so that the sigal is 448 bits:
+	0011000100110010001100110011010000110101001101100011011100111000001110010011000000110001001100100011001100110100001101010011011000110111001110000011100100110000001100010011001000110011001101000011010100110110001101111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+Finally, append the length (number of bits: 216) of the message '123456789012345678901234567' as a 64-bit integer so that the final message has 512 bits:
+	00110001001100100011001100110100001101010011011000110111001110000011100100110000001100010011001000110011001101000011010100110110001101110011100000111001001100000011000100110010001100110011010000110101001101100011011110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011011000
+
+The message is 0x313233343536373839303132333435363738393031323334353637800000000000000000000000000000000000000000000000000000000000000000000000d8 in hexidecimal format
+
+**************Step 2: block decomposition**************
+
+Now decompose the following 512-bit message into 16 32-bit blocks:
+	0x313233343536373839303132333435363738393031323334353637800000000000000000000000000000000000000000000000000000000000000000000000d8
+
+Block 1 is 0x31323334
+Block 2 is 0x35363738
+Block 3 is 0x39303132
+Block 4 is 0x33343536
+Block 5 is 0x37383930
+Block 6 is 0x31323334
+Block 7 is 0x35363780
+Block 8 is 0x00000000
+Block 9 is 0x00000000
+Block 10 is 0x00000000
+Block 11 is 0x00000000
+Block 12 is 0x00000000
+Block 13 is 0x00000000
+Block 14 is 0x00000000
+Block 15 is 0x00000000
+Block 16 is 0x000000d8
+
+Now continue calculating the rest 48 blocks:
+
+Block 17 is 0x2c34daf8
+Block 18 is 0xa4c61f40
+Block 19 is 0x96a5b1dd
+Block 20 is 0x685b274c
+Block 21 is 0x88b23866
+Block 22 is 0xb3b48af5
+Block 23 is 0x9053f219
+Block 24 is 0x003d5d86
+Block 25 is 0x2c320e1f
+Block 26 is 0x9c19812b
+Block 27 is 0xaf22a668
+Block 28 is 0x7949f455
+Block 29 is 0xbb8715d1
+Block 30 is 0x55123409
+Block 31 is 0x18ef6916
+Block 32 is 0x4c23cd84
+Block 33 is 0x33ffb7ba
+Block 34 is 0xb8d905ff
+Block 35 is 0x991f0f50
+Block 36 is 0x186edba3
+Block 37 is 0x23d51984
+Block 38 is 0x60f4a64a
+Block 39 is 0x67d87177
+Block 40 is 0xb48b4560
+Block 41 is 0x4089a14a
+Block 42 is 0x6c8a38c9
+Block 43 is 0x84fcbf78
+Block 44 is 0x69f949a3
+Block 45 is 0x79f86196
+Block 46 is 0x405402dc
+Block 47 is 0xfcdf6974
+Block 48 is 0xadc9b155
+Block 49 is 0xa34b4333
+Block 50 is 0x9e46d05b
+Block 51 is 0xc0c590e7
+Block 52 is 0x8ec46c8e
+Block 53 is 0x8fd62b36
+Block 54 is 0x18329e99
+Block 55 is 0xed20d96b
+Block 56 is 0x6932e394
+Block 57 is 0x67ee3cf1
+Block 58 is 0x293b0e65
+Block 59 is 0x07449264
+Block 60 is 0x1c6d56e1
+Block 61 is 0x1de78ae8
+Block 62 is 0x5b600000
+Block 63 is 0x6cf88fef
+Block 64 is 0xb9b20354
+
+**************Step 3: Hash computation**************
+
+Now initialize variable a - h
+
+a: 0x6a09e667
+b: 0xbb67ae85
+c: 0x3c6ef372
+d: 0xa54ff53a
+e: 0x510e527f
+f: 0x9b05688c
+g: 0x1f83d9ab
+h: 0x5be0cd19
+
+Now enter the 64-iteration loop
+
+End of iteration 1
+a: 0x2d3abb81
+b: 0x6a09e667
+c: 0xbb67ae85
+d: 0x3c6ef372
+e: 0xc9fa15d6
+f: 0x510e527f
+g: 0x9b05688c
+h: 0x1f83d9ab
+T1: 0x24aa209c
+T2: 0x08909ae5
+
+End of iteration 2
+a: 0xdeca7c49
+b: 0x2d3abb81
+c: 0x6a09e667
+d: 0xbb67ae85
+e: 0x7263fdb5
+f: 0xc9fa15d6
+g: 0x510e527f
+h: 0x9b05688c
+T1: 0x35f50a43
+T2: 0xa8d57206
+
+End of iteration 3
+a: 0x48161316
+b: 0xdeca7c49
+c: 0x2d3abb81
+d: 0x6a09e667
+e: 0xd9657520
+f: 0x7263fdb5
+g: 0xc9fa15d6
+h: 0x510e527f
+T1: 0x1dfdc69b
+T2: 0x2a184c7b
+
+End of iteration 4
+a: 0xf3cddabc
+b: 0x48161316
+c: 0xdeca7c49
+d: 0x2d3abb81
+e: 0xbec1e8cd
+f: 0xd9657520
+g: 0x7263fdb5
+h: 0xc9fa15d6
+T1: 0x54b80266
+T2: 0x9f15d856
+
+End of iteration 5
+a: 0x1bf1b4fc
+b: 0xf3cddabc
+c: 0x48161316
+d: 0xdeca7c49
+e: 0x8fdffb53
+f: 0xbec1e8cd
+g: 0xd9657520
+h: 0x7263fdb5
+T1: 0x62a53fd2
+T2: 0xb94c752a
+
+End of iteration 6
+a: 0x6bc132a9
+b: 0x1bf1b4fc
+c: 0xf3cddabc
+d: 0x48161316
+e: 0x86e6d959
+f: 0x8fdffb53
+g: 0xbec1e8cd
+h: 0xd9657520
+T1: 0xa81c5d10
+T2: 0xc3a4d599
+
+End of iteration 7
+a: 0xe51e7e5e
+b: 0x6bc132a9
+c: 0x1bf1b4fc
+d: 0xf3cddabc
+e: 0xe60127ac
+f: 0x86e6d959
+g: 0x8fdffb53
+h: 0xbec1e8cd
+T1: 0x9deb1496
+T2: 0x473369c8
+
+End of iteration 8
+a: 0xde6f37b2
+b: 0xe51e7e5e
+c: 0x6bc132a9
+d: 0x1bf1b4fc
+e: 0x34220e82
+f: 0xe60127ac
+g: 0x86e6d959
+h: 0x8fdffb53
+T1: 0x405433c6
+T2: 0x9e1b03ec
+
+End of iteration 9
+a: 0x7e60f7cb
+b: 0xde6f37b2
+c: 0xe51e7e5e
+d: 0x6bc132a9
+e: 0xf42f8021
+f: 0x34220e82
+g: 0xe60127ac
+h: 0x86e6d959
+T1: 0xd83dcb25
+T2: 0xa6232ca6
+
+End of iteration 10
+a: 0x4445e1d6
+b: 0x7e60f7cb
+c: 0xde6f37b2
+d: 0xe51e7e5e
+e: 0xcf7bb999
+f: 0xf42f8021
+g: 0x34220e82
+h: 0xe60127ac
+T1: 0x63ba86f0
+T2: 0xe08b5ae6
+
+End of iteration 11
+a: 0xcec0fc00
+b: 0x4445e1d6
+c: 0x7e60f7cb
+d: 0xde6f37b2
+e: 0xcd557f41
+f: 0xcf7bb999
+g: 0xf42f8021
+h: 0x34220e82
+T1: 0xe83700e3
+T2: 0xe689fb1d
+
+End of iteration 12
+a: 0xeae4e518
+b: 0xcec0fc00
+c: 0x4445e1d6
+d: 0x7e60f7cb
+e: 0xaaccdccc
+f: 0xcd557f41
+g: 0xcf7bb999
+h: 0xf42f8021
+T1: 0xcc5da51a
+T2: 0x1e873ffe
+
+End of iteration 13
+a: 0x52645a7d
+b: 0xeae4e518
+c: 0xcec0fc00
+d: 0x4445e1d6
+e: 0x80165f6e
+f: 0xaaccdccc
+g: 0xcd557f41
+h: 0xcf7bb999
+T1: 0x01b567a3
+T2: 0x50aef2da
+
+End of iteration 14
+a: 0x5b9f41e6
+b: 0x52645a7d
+c: 0xeae4e518
+d: 0xcec0fc00
+e: 0xbee5b6b0
+f: 0x80165f6e
+g: 0xaaccdccc
+h: 0xcd557f41
+T1: 0x7a9fd4da
+T2: 0xe0ff6d0c
+
+End of iteration 15
+a: 0x8f2bcdf0
+b: 0x5b9f41e6
+c: 0x52645a7d
+d: 0xeae4e518
+e: 0x1e35f287
+f: 0xbee5b6b0
+g: 0x80165f6e
+h: 0xaaccdccc
+T1: 0x4f74f687
+T2: 0x3fb6d769
+
+End of iteration 16
+a: 0x9f9b740d
+b: 0x8f2bcdf0
+c: 0x5b9f41e6
+d: 0x52645a7d
+e: 0x4bd7c713
+f: 0x1e35f287
+g: 0xbee5b6b0
+h: 0x80165f6e
+T1: 0x60f2e1fb
+T2: 0x3ea89212
+
+End of iteration 17
+a: 0xddb7a095
+b: 0x9f9b740d
+c: 0x8f2bcdf0
+d: 0x5b9f41e6
+e: 0xe6269d88
+f: 0x4bd7c713
+g: 0x1e35f287
+h: 0xbee5b6b0
+T1: 0x93c2430b
+T2: 0x49f55d8a
+
+End of iteration 18
+a: 0x7c49d6d6
+b: 0xddb7a095
+c: 0x9f9b740d
+d: 0x8f2bcdf0
+e: 0x8aebe139
+f: 0xe6269d88
+g: 0x4bd7c713
+h: 0x1e35f287
+T1: 0x2f4c9f53
+T2: 0x4cfd3783
+
+End of iteration 19
+a: 0x2954fa10
+b: 0x7c49d6d6
+c: 0xddb7a095
+d: 0x9f9b740d
+e: 0xcbea0561
+f: 0x8aebe139
+g: 0xe6269d88
+h: 0x4bd7c713
+T1: 0x3cbe3771
+T2: 0xec96c29f
+
+End of iteration 20
+a: 0x6bd4b69e
+b: 0x2954fa10
+c: 0x7c49d6d6
+d: 0xddb7a095
+e: 0x04de0391
+f: 0xcbea0561
+g: 0x8aebe139
+h: 0xe6269d88
+T1: 0x65428f84
+T2: 0x0692271a
+
+End of iteration 21
+a: 0x67111015
+b: 0x6bd4b69e
+c: 0x2954fa10
+d: 0x7c49d6d6
+e: 0x5e97af67
+f: 0x04de0391
+g: 0xcbea0561
+h: 0x8aebe139
+T1: 0x80e00ed2
+T2: 0xe6310143
+
+End of iteration 22
+a: 0x51dd0ee5
+b: 0x67111015
+c: 0x6bd4b69e
+d: 0x2954fa10
+e: 0xc5a30a96
+f: 0x5e97af67
+g: 0x04de0391
+h: 0xcbea0561
+T1: 0x495933c0
+T2: 0x0883db25
+
+End of iteration 23
+a: 0x91548e31
+b: 0x51dd0ee5
+c: 0x67111015
+d: 0x6bd4b69e
+e: 0xff6e1996
+f: 0xc5a30a96
+g: 0x5e97af67
+h: 0x04de0391
+T1: 0xd6191f86
+T2: 0xbb3b6eab
+
+End of iteration 24
+a: 0xb92db564
+b: 0x91548e31
+c: 0x51dd0ee5
+d: 0x67111015
+e: 0x8bcbee60
+f: 0xff6e1996
+g: 0xc5a30a96
+h: 0x5e97af67
+T1: 0x1ff737c2
+T2: 0x99367da2
+
+End of iteration 25
+a: 0x63544324
+b: 0xb92db564
+c: 0x91548e31
+d: 0x51dd0ee5
+e: 0x054c8e04
+f: 0x8bcbee60
+g: 0xff6e1996
+h: 0xc5a30a96
+T1: 0x9e3b7def
+T2: 0xc518c535
+
+End of iteration 26
+a: 0x7e7aae75
+b: 0x63544324
+c: 0xb92db564
+d: 0x91548e31
+e: 0xce089a50
+f: 0x054c8e04
+g: 0x8bcbee60
+h: 0xff6e1996
+T1: 0x7c2b8b6b
+T2: 0x024f230a
+
+End of iteration 27
+a: 0xb3d5d618
+b: 0x7e7aae75
+c: 0x63544324
+d: 0xb92db564
+e: 0x03212f34
+f: 0xce089a50
+g: 0x054c8e04
+h: 0x8bcbee60
+T1: 0x71cca103
+T2: 0x42093515
+
+End of iteration 28
+a: 0xaf94b73f
+b: 0xb3d5d618
+c: 0x7e7aae75
+d: 0x63544324
+e: 0x2a051c88
+f: 0x03212f34
+g: 0xce089a50
+h: 0x054c8e04
+T1: 0x70d76724
+T2: 0x3ebd501b
+
+End of iteration 29
+a: 0xc179b4ed
+b: 0xaf94b73f
+c: 0xb3d5d618
+d: 0x7e7aae75
+e: 0x64349200
+f: 0x2a051c88
+g: 0x03212f34
+h: 0xce089a50
+T1: 0x00e04edc
+T2: 0xc0996611
+
+End of iteration 30
+a: 0x4d5679ec
+b: 0xc179b4ed
+c: 0xaf94b73f
+d: 0xb3d5d618
+e: 0xf617a031
+f: 0x64349200
+g: 0x2a051c88
+h: 0x03212f34
+T1: 0x779cf1bc
+T2: 0xd5b98830
+
+End of iteration 31
+a: 0xac4b189c
+b: 0x4d5679ec
+c: 0xc179b4ed
+d: 0xaf94b73f
+e: 0x0cfbf2ca
+f: 0xf617a031
+g: 0x64349200
+h: 0x2a051c88
+T1: 0x59261cb2
+T2: 0x5324fbea
+
+End of iteration 32
+a: 0x8be5d8e0
+b: 0xac4b189c
+c: 0x4d5679ec
+d: 0xc179b4ed
+e: 0xaa898065
+f: 0x0cfbf2ca
+g: 0xf617a031
+h: 0x64349200
+T1: 0xfaf4c926
+T2: 0x90f10fba
+
+End of iteration 33
+a: 0xfb503e98
+b: 0x8be5d8e0
+c: 0xac4b189c
+d: 0x4d5679ec
+e: 0xbce3ef60
+f: 0xaa898065
+g: 0x0cfbf2ca
+h: 0xf617a031
+T1: 0xfb6a3a73
+T2: 0xffe60425
+
+End of iteration 34
+a: 0xdae3cb52
+b: 0xfb503e98
+c: 0x8be5d8e0
+d: 0xac4b189c
+e: 0xf20f75dc
+f: 0xbce3ef60
+g: 0xaa898065
+h: 0x0cfbf2ca
+T1: 0xa4b8fbf0
+T2: 0x362acf62
+
+End of iteration 35
+a: 0xba9d3128
+b: 0xdae3cb52
+c: 0xfb503e98
+d: 0x8be5d8e0
+e: 0x28030053
+f: 0xf20f75dc
+g: 0xbce3ef60
+h: 0xaa898065
+T1: 0x7bb7e7b7
+T2: 0x3ee54971
+
+End of iteration 36
+a: 0xe050f3e1
+b: 0xba9d3128
+c: 0xdae3cb52
+d: 0xfb503e98
+e: 0x9e3f5760
+f: 0x28030053
+g: 0xf20f75dc
+h: 0xbce3ef60
+T1: 0x12597e80
+T2: 0xcdf77561
+
+End of iteration 37
+a: 0xbf2dd56a
+b: 0xe050f3e1
+c: 0xba9d3128
+d: 0xdae3cb52
+e: 0x1ad766a4
+f: 0x9e3f5760
+g: 0x28030053
+h: 0xf20f75dc
+T1: 0x1f87280c
+T2: 0x9fa6ad5e
+
+End of iteration 38
+a: 0xa0c9daff
+b: 0xbf2dd56a
+c: 0xe050f3e1
+d: 0xba9d3128
+e: 0x0dc48e21
+f: 0x1ad766a4
+g: 0x9e3f5760
+h: 0x28030053
+T1: 0x32e0c2cf
+T2: 0x6de91830
+
+End of iteration 39
+a: 0x07ddaee4
+b: 0xa0c9daff
+c: 0xbf2dd56a
+d: 0xe050f3e1
+e: 0x098c7daf
+f: 0x0dc48e21
+g: 0x1ad766a4
+h: 0x9e3f5760
+T1: 0x4eef4c87
+T2: 0xb8ee625d
+
+End of iteration 40
+a: 0x7948539c
+b: 0x07ddaee4
+c: 0xa0c9daff
+d: 0xbf2dd56a
+e: 0xb15ea344
+f: 0x098c7daf
+g: 0x0dc48e21
+h: 0x1ad766a4
+T1: 0xd10daf63
+T2: 0xa83aa439
+
+End of iteration 41
+a: 0xa6799af1
+b: 0x7948539c
+c: 0x07ddaee4
+d: 0xa0c9daff
+e: 0x9fdde61f
+f: 0xb15ea344
+g: 0x098c7daf
+h: 0x0dc48e21
+T1: 0xe0b010b5
+T2: 0xc5c98a3c
+
+End of iteration 42
+a: 0x87179ba1
+b: 0xa6799af1
+c: 0x7948539c
+d: 0x07ddaee4
+e: 0xa80f47c3
+f: 0x9fdde61f
+g: 0xb15ea344
+h: 0x098c7daf
+T1: 0x07456cc4
+T2: 0x7fd22edd
+
+End of iteration 43
+a: 0x65aa7fba
+b: 0x87179ba1
+c: 0xa6799af1
+d: 0x7948539c
+e: 0xe3873aa5
+f: 0xa80f47c3
+g: 0x9fdde61f
+h: 0xb15ea344
+T1: 0xdba98bc1
+T2: 0x8a00f3f9
+
+End of iteration 44
+a: 0x14563afd
+b: 0x65aa7fba
+c: 0x87179ba1
+d: 0xa6799af1
+e: 0x191b97bd
+f: 0xe3873aa5
+g: 0xa80f47c3
+h: 0x9fdde61f
+T1: 0x9fd34421
+T2: 0x7482f6dc
+
+End of iteration 45
+a: 0xe9aa2a6d
+b: 0x14563afd
+c: 0x65aa7fba
+d: 0x87179ba1
+e: 0xc0f6b146
+f: 0x191b97bd
+g: 0xe3873aa5
+h: 0xa80f47c3
+T1: 0x1a7d1655
+T2: 0xcf2d1418
+
+End of iteration 46
+a: 0x11e9ff44
+b: 0xe9aa2a6d
+c: 0x14563afd
+d: 0x65aa7fba
+e: 0xb1aaef7c
+f: 0xc0f6b146
+g: 0x191b97bd
+h: 0xe3873aa5
+T1: 0x2a9353db
+T2: 0xe756ab69
+
+End of iteration 47
+a: 0x90e1c761
+b: 0x11e9ff44
+c: 0xe9aa2a6d
+d: 0x14563afd
+e: 0x8afa2bd5
+f: 0xb1aaef7c
+g: 0xc0f6b146
+h: 0x191b97bd
+T1: 0x254fac1b
+T2: 0x6b921b46
+
+End of iteration 48
+a: 0x53a16201
+b: 0x90e1c761
+c: 0x11e9ff44
+d: 0xe9aa2a6d
+e: 0xfde43d04
+f: 0x8afa2bd5
+g: 0xb1aaef7c
+h: 0xc0f6b146
+T1: 0xe98e0207
+T2: 0x6a135ffa
+
+End of iteration 49
+a: 0x1b94f71e
+b: 0x53a16201
+c: 0x90e1c761
+d: 0x11e9ff44
+e: 0x31f27985
+f: 0xfde43d04
+g: 0x8afa2bd5
+h: 0xb1aaef7c
+T1: 0x48484f18
+T2: 0xd34ca806
+
+End of iteration 50
+a: 0x88da1c73
+b: 0x1b94f71e
+c: 0x53a16201
+d: 0x90e1c761
+e: 0x19589ba8
+f: 0x31f27985
+g: 0xfde43d04
+h: 0x8afa2bd5
+T1: 0x076e9c64
+T2: 0x816b800f
+
+End of iteration 51
+a: 0x679394ff
+b: 0x88da1c73
+c: 0x1b94f71e
+d: 0x53a16201
+e: 0x7309d65e
+f: 0x19589ba8
+g: 0x31f27985
+h: 0xfde43d04
+T1: 0xe2280efd
+T2: 0x856b8602
+
+End of iteration 52
+a: 0x461c43e6
+b: 0x679394ff
+c: 0x88da1c73
+d: 0x1b94f71e
+e: 0x5ddeed2b
+f: 0x7309d65e
+g: 0x19589ba8
+h: 0x31f27985
+T1: 0x0a3d8b2a
+T2: 0x3bdeb8bc
+
+End of iteration 53
+a: 0x79acabb9
+b: 0x461c43e6
+c: 0x679394ff
+d: 0x88da1c73
+e: 0x4eecd4dd
+f: 0x5ddeed2b
+g: 0x7309d65e
+h: 0x19589ba8
+T1: 0x3357ddbf
+T2: 0x4654cdfa
+
+End of iteration 54
+a: 0xafd43170
+b: 0x79acabb9
+c: 0x461c43e6
+d: 0x679394ff
+e: 0x2003c777
+f: 0x4eecd4dd
+g: 0x5ddeed2b
+h: 0x7309d65e
+T1: 0x9729ab04
+T2: 0x18aa866c
+
+End of iteration 55
+a: 0xad7def9c
+b: 0xafd43170
+c: 0x79acabb9
+d: 0x461c43e6
+e: 0xb4bfb069
+f: 0x2003c777
+g: 0x4eecd4dd
+h: 0x5ddeed2b
+T1: 0x4d2c1b6a
+T2: 0x6051d432
+
+End of iteration 56
+a: 0xdbc17209
+b: 0xad7def9c
+c: 0xafd43170
+d: 0x79acabb9
+e: 0xd3dca77a
+f: 0xb4bfb069
+g: 0x2003c777
+h: 0x4eecd4dd
+T1: 0x8dc06394
+T2: 0x4e010e75
+
+End of iteration 57
+a: 0x599d4287
+b: 0xdbc17209
+c: 0xad7def9c
+d: 0xafd43170
+e: 0x3ffdd542
+f: 0xd3dca77a
+g: 0xb4bfb069
+h: 0x2003c777
+T1: 0xc6512989
+T2: 0x934c18fe
+
+End of iteration 58
+a: 0x454a6c60
+b: 0x599d4287
+c: 0xdbc17209
+d: 0xad7def9c
+e: 0x63e9ba16
+f: 0x3ffdd542
+g: 0xd3dca77a
+h: 0xb4bfb069
+T1: 0xb41588a6
+T2: 0x9134e3ba
+
+End of iteration 59
+a: 0x9a13b398
+b: 0x454a6c60
+c: 0x599d4287
+d: 0xdbc17209
+e: 0x91e710d5
+f: 0x63e9ba16
+g: 0x3ffdd542
+h: 0xd3dca77a
+T1: 0xe4692139
+T2: 0xb5aa925f
+
+End of iteration 60
+a: 0xba326075
+b: 0x9a13b398
+c: 0x454a6c60
+d: 0x599d4287
+e: 0x484a11eb
+f: 0x91e710d5
+g: 0x63e9ba16
+h: 0x3ffdd542
+T1: 0x6c889fe2
+T2: 0x4da9c093
+
+End of iteration 61
+a: 0x067bef70
+b: 0xba326075
+c: 0x9a13b398
+d: 0x454a6c60
+e: 0x21663221
+f: 0x484a11eb
+g: 0x91e710d5
+h: 0x63e9ba16
+T1: 0xc7c8ef9a
+T2: 0x3eb2ffd6
+
+End of iteration 62
+a: 0x97ecc81e
+b: 0x067bef70
+c: 0xba326075
+d: 0x9a13b398
+e: 0xad6048f4
+f: 0x21663221
+g: 0x484a11eb
+h: 0x91e710d5
+T1: 0x6815dc94
+T2: 0x2fd6eb8a
+
+End of iteration 63
+a: 0x87f28d14
+b: 0x97ecc81e
+c: 0x067bef70
+d: 0xba326075
+e: 0x355b60fa
+f: 0xad6048f4
+g: 0x21663221
+h: 0x484a11eb
+T1: 0x9b47ad62
+T2: 0xecaadfb2
+
+End of iteration 64
+a: 0x535d38f9
+b: 0x87f28d14
+c: 0x97ecc81e
+d: 0x067bef70
+e: 0x0227fd8c
+f: 0x355b60fa
+g: 0xad6048f4
+h: 0x21663221
+T1: 0x47f59d17
+T2: 0x0b679be2
+
+Finished the 64-iteration loop
+H1: 0xbd671f60
+H2: 0x435a3b99
+H3: 0xd45bbb90
+H4: 0xabcbe4aa
+H5: 0x5336500b
+H6: 0xd060c986
+H7: 0xcce4229f
+H8: 0x7d46ff3a
+
+sha256 result: bd671f60435a3b99d45bbb90abcbe4aa5336500bd060c986cce4229f7d46ff3a
+reference result: bd671f60435a3b99d45bbb90abcbe4aa5336500bd060c986cce4229f7d46ff3a
+The results match
