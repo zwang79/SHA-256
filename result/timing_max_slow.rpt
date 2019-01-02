@@ -1,0 +1,85 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'MyDesign' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : MyDesign
+Version: K-2015.06-SP1
+Date   : Sat Nov 24 17:06:44 2018
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: slow   Library: NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm
+Wire Load Model Mode: top
+
+  Startpoint: w/counter_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: w/W_reg[1][28]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                 0.0000     0.0000
+  clock network delay (ideal)                           0.0000     0.0000
+  w/counter_reg[0]/CK (DFF_X2)                          0.0000 #   0.0000 r
+  w/counter_reg[0]/Q (DFF_X2)                           0.4597     0.4597 r
+  U8132/Z (MUX2_X2)                                     0.7646     1.2243 f
+  U5559/ZN (NAND2_X2)                                   0.1927     1.4170 r
+  U5429/ZN (AND3_X1)                                    0.2510     1.6680 r
+  U5340/ZN (AND2_X4)                                    0.4862     2.1542 r
+  U6337/ZN (NAND2_X2)                                   0.1187     2.2729 f
+  U6335/ZN (NAND2_X2)                                   0.1026     2.3755 r
+  U6334/ZN (AOI221_X2)                                  0.0907     2.4661 f
+  U6333/ZN (NAND4_X2)                                   0.3103     2.7764 r
+  add_1_root_add_0_root_w/add_81_3/B[4] (MyDesign_DW01_add_42)
+                                                        0.0000     2.7764 r
+  add_1_root_add_0_root_w/add_81_3/U311/ZN (NAND2_X2)   0.1196     2.8960 f
+  add_1_root_add_0_root_w/add_81_3/U448/ZN (OAI21_X2)   0.2935     3.1894 r
+  add_1_root_add_0_root_w/add_81_3/U447/ZN (AOI21_X2)   0.1184     3.3078 f
+  add_1_root_add_0_root_w/add_81_3/U445/ZN (OAI21_X2)   0.2847     3.5926 r
+  add_1_root_add_0_root_w/add_81_3/U473/ZN (AOI21_X2)   0.1187     3.7113 f
+  add_1_root_add_0_root_w/add_81_3/U376/Z (BUF_X4)      0.2367     3.9480 f
+  add_1_root_add_0_root_w/add_81_3/U378/ZN (OAI21_X2)   0.2102     4.1581 r
+  add_1_root_add_0_root_w/add_81_3/U85/ZN (XNOR2_X2)    0.3102     4.4684 r
+  add_1_root_add_0_root_w/add_81_3/SUM[23] (MyDesign_DW01_add_42)
+                                                        0.0000     4.4684 r
+  add_0_root_add_0_root_w/add_81_3/B[23] (MyDesign_DW01_add_43)
+                                                        0.0000     4.4684 r
+  add_0_root_add_0_root_w/add_81_3/U413/ZN (OR2_X1)     0.2436     4.7120 r
+  add_0_root_add_0_root_w/add_81_3/U356/ZN (INV_X1)     0.0612     4.7732 f
+  add_0_root_add_0_root_w/add_81_3/U355/ZN (OAI21_X1)   0.3276     5.1008 r
+  add_0_root_add_0_root_w/add_81_3/U357/ZN (INV_X4)     0.0589     5.1597 f
+  add_0_root_add_0_root_w/add_81_3/U480/ZN (OAI21_X2)   0.1855     5.3452 r
+  add_0_root_add_0_root_w/add_81_3/U476/ZN (AOI21_X2)   0.1222     5.4674 f
+  add_0_root_add_0_root_w/add_81_3/U344/ZN (OAI21_X4)   0.2333     5.7008 r
+  add_0_root_add_0_root_w/add_81_3/U380/ZN (INV_X1)     0.0890     5.7897 f
+  add_0_root_add_0_root_w/add_81_3/U379/ZN (OAI21_X2)   0.2558     6.0455 r
+  add_0_root_add_0_root_w/add_81_3/U381/ZN (INV_X4)     0.0484     6.0939 f
+  add_0_root_add_0_root_w/add_81_3/U394/Z (XOR2_X2)     0.6843     6.7783 r
+  add_0_root_add_0_root_w/add_81_3/SUM[28] (MyDesign_DW01_add_43)
+                                                        0.0000     6.7783 r
+  U9478/ZN (NAND2_X2)                                   0.1322     6.9104 f
+  U9479/ZN (OAI221_X2)                                  0.2413     7.1518 r
+  w/W_reg[1][28]/D (DFF_X2)                             0.0000     7.1518 r
+  data arrival time                                                7.1518
+
+  clock clk (rise edge)                                 7.5000     7.5000
+  clock network delay (ideal)                           0.0000     7.5000
+  clock uncertainty                                    -0.0500     7.4500
+  w/W_reg[1][28]/CK (DFF_X2)                            0.0000     7.4500 r
+  library setup time                                   -0.2895     7.1605
+  data required time                                               7.1605
+  --------------------------------------------------------------------------
+  data required time                                               7.1605
+  data arrival time                                               -7.1518
+  --------------------------------------------------------------------------
+  slack (MET)                                                      0.0087
+
+
+1

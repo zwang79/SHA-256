@@ -1,0 +1,14 @@
+Name: Zhiping Wang
+UID: zwang79
+StudentID: 200265085
+
+area = 17796.464 um^2
+
+
+Number of cycles: 87 for length = 1 message; 113 for length = 27 message; 141 for length = 55 message; 
+                  common formula: Number of cycles = xxx__dut__msg_length + 86;
+
+clock period = 7.5 ns
+
+
+performance = 17796.464 * 87 * 7.5 = 11612192.76 um^2*ns
